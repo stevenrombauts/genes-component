@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest type="component" version="1.0.0">
+    <name>Genes</name>
+    <date>January 2014</date>
+    <author>
+        <name>Steven Rombauts</name>
+        <email>github@kotuha.be</email>
+        <link>www.kotuha.be</link>
+    </author>
+    <license>http://www.gnu.org/licenses/gpl.html GNU/GPL v3</license>
+</manifest>
