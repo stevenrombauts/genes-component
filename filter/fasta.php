@@ -8,7 +8,7 @@
 // @TODO add flag to sanitize using amino acid codes or nucleic acid codes
 class ComGenesFilterFasta extends KFilterAbstract
 {
-    protected $_pattern = '/^([\>;].*\r?\n?)+([A-Z\-\r\n]+\*?)$/i';
+    protected $_pattern = '/^([\>;].*\r?\n?)?(;.*\r?\n?)?([A-Z\-\r\n]+\*?)$/i';
 
     public function validate($data)
     {
@@ -35,6 +35,20 @@ class ComGenesFilterFasta extends KFilterAbstract
                 break;
             case 1:
                 $body    = $matches[0];
+                break;
+            case 0:
+                return '';
+            default:
+                // If we have more lines, that means there are multiple lines containing comments
+                // between the sequence header and body. Ignore those lines:
+                for ($i = 1; $i < count($matches) - 1; $i++) {
+                    unset($matches[$i]);
+                }
+
+                $matches = array_values($matches);
+
+                $heading = $matches[0];
+                $body    = $matches[1];
                 break;
         }
 
