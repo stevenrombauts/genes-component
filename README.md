@@ -25,6 +25,7 @@ Run `composer install` to take care of downloading and installing the package.
 ### Fasta filter
 
 You can use the [FASTA](https://en.wikipedia.org/wiki/FASTA_format) filter to validate and sanitize nucleotide sequences or peptide sequences. 
+
 Example:
 
 ```php
@@ -40,4 +41,7 @@ EOL;
 
 // This one should be valid:
 echo ($filter->validate($sequence) === true ? "Valid sequence" : "Invalid sequence");
+
+// Sanitizing will remove all characters that don't belong (line-breaks, comments, etc ..):
+echo $filter->sanitize($sequence);
 ```
