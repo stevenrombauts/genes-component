@@ -1,5 +1,5 @@
 <?php
-class FilterFasta extends KFilterAbstract
+class ComGenesFilterFasta extends KFilterAbstract
 {
     protected $_pattern = '/(\>.*\r?\n?)?([A-Z\-\r\n]+\*?)/';
 

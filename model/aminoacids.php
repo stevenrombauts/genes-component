@@ -4,7 +4,7 @@
 // @link http://www.hgvs.org/mutnomen/codon.html
 // @link http://www.techcuriosity.com/resources/bioinformatics/dna2protein.php
 // @link http://www.bioon.com/book/biology/Beginning%20Perl%20for%20Bioinformatics/76.htm
-class ModelAminoAcids extends KModelAbstract
+class ComGenesModelAminoAcids extends KModelAbstract
 {
     protected $_codons = array(
         'TCA' => 'S','TCC' => 'S','TCG' => 'S','TCT' => 'S','TTC' => 'F','TTT' => 'F','TTA' => 'L','TTG' => 'L','TAC' => 'Y',

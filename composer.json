@@ -3,6 +3,7 @@
     "type": "nooku-component",
     "license": "GPLv3",
     "require": {
+        "nooku/framework": "*",
         "nooku/installer": "*"
     },
     "autoload": {
