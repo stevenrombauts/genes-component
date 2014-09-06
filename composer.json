@@ -1,0 +1,20 @@
+
+{
+    "name": "stevenrombauts/genes-component",
+    "type": "nooku-component",
+    "license": "GPLv3",
+    "require": {
+        "nooku/installer": "*"
+    },
+    "autoload": {
+        "files": ["autoload.php"]
+    },
+    "homepage": "https://github.com/stevenrombauts/genes-component",
+    "authors": [
+        {
+            "name": "Steven Rombauts",
+            "email": "github@kotuha.be",
+            "homepage": "http://www.kotuha.be"
+        }
+    ]
+}
