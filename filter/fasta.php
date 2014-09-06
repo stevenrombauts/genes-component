@@ -1,16 +1,22 @@
 <?php
+/**
+ * Fasta Filter
+ *
+ * @link    https://en.wikipedia.org/wiki/FASTA_format
+ * @author  Steven Rombauts <https://github.com/stevenrombauts>
+ */
+// @TODO add flag to sanitize using amino acid codes or nucleic acid codes
 class ComGenesFilterFasta extends KFilterAbstract
 {
-    protected $_pattern = '/(\>.*\r?\n?)?([A-Z\-\r\n]+\*?)/';
+    protected $_pattern = '/^([\>;].*\r?\n?)+([A-Z\-\r\n]+\*?)$/i';
 
     public function validate($data)
     {
         $value = trim($data);
 
-        return (is_string($value) && (preg_match($this->_pattern.'/i', $value)) == 1);
+        return (is_string($value) && (preg_match($this->_pattern, $value)) == 1);
     }
 
-    // @TODO add flag to sanitize using amino acid codes or nucleic acid codes
     public function sanitize($data)
     {
         $result = preg_match($this->_pattern, $data, $matches);
@@ -27,7 +33,6 @@ class ComGenesFilterFasta extends KFilterAbstract
                 $heading = $matches[0];
                 $body    = $matches[1];
                 break;
-            default:
             case 1:
                 $body    = $matches[0];
                 break;
