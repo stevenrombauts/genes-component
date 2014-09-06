@@ -1,9 +1,5 @@
 <?php
-namespace Nooku\Component\Genes;
-
-use Nooku\Library;
-
-class FilterFasta extends Library\FilterAbstract
+class FilterFasta extends KFilterAbstract
 {
     protected $_pattern = '/(\>.*\r?\n?)?([A-Z\-\r\n]+\*?)/';
 
@@ -43,7 +39,6 @@ class FilterFasta extends Library\FilterAbstract
         }
 
         // If the end of the sequence is marked by an asterix, remove it.
-        $asterix = false;
         if(substr($body, -1) == '*') {
             $body = substr($body, 0, -1);
         }
