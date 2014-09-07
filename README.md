@@ -24,7 +24,7 @@ Run `composer install` to take care of downloading and installing the package.
 
 ### Fasta filter
 
-You can use the [FASTA](https://en.wikipedia.org/wiki/FASTA_format) filter to validate and sanitize nucleotide sequences or peptide sequences. 
+You can use the [FASTA](https://en.wikipedia.org/wiki/FASTA_format) filter to validate and sanitize strings representings nucleotide sequences or peptide sequences. 
 
 Example:
 

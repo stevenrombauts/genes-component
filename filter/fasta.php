@@ -26,18 +26,19 @@ class ComGenesFilterFasta extends KFilterAbstract
         }
 
         array_shift($matches);
+
         $heading = '';
         switch(count($matches))
         {
+            case 0:
+                return '';
+            case 1:
+                $body    = $matches[0];
+                break;
             case 2:
                 $heading = $matches[0];
                 $body    = $matches[1];
                 break;
-            case 1:
-                $body    = $matches[0];
-                break;
-            case 0:
-                return '';
             default:
                 // If we have more lines, that means there are multiple lines containing comments
                 // between the sequence header and body. Ignore those lines:
