@@ -17,7 +17,7 @@ class ComGenesModelAminoAcids extends KModelAbstract
         'GGT' => 'G'
     );
 
-    public function __construct(Library\ObjectConfig $config)
+    public function __construct(KObjectConfig $config)
     {
         parent::__construct($config);
 
@@ -25,7 +25,7 @@ class ComGenesModelAminoAcids extends KModelAbstract
             ->insert('codon', 'string');
     }
 
-    public function getRow()
+    protected function _actionFetch(KModelContext $context)
     {
         $codon = strtoupper($this->getState()->codon);
 
