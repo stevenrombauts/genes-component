@@ -15,7 +15,7 @@ class ComGenesModelEntityGene extends KModelEntityAbstract
         parent::_initialize($config);
     }
 
-    public function getProteinSequence()
+    public function getPropertyProtein()
     {
         $lines = explode("\n", $this->sequence);
 
