@@ -4,11 +4,20 @@
  *
  * @author  Steven Rombauts <https://github.com/stevenrombauts>
  */
-class ComGenesModelEntityGene extends KModelEntityRow
+class ComGenesModelEntityGene extends KModelEntityAbstract
 {
+    protected function _initialize(KObjectConfig $config)
+    {
+        $config->append(array(
+            'identity_key'    => 'identifier'
+        ));
+
+        parent::_initialize($config);
+    }
+
     public function getProteinSequence()
     {
-        $lines = explode("\n", $this->dna_sequence);
+        $lines = explode("\n", $this->sequence);
 
         if(isset($lines[0]) && substr($lines[0], 0, 1) == '>') {
             array_shift($lines);
@@ -37,7 +46,7 @@ class ComGenesModelEntityGene extends KModelEntityRow
 
         reset($codons);
         foreach($codons as $codon) {
-            $protein .= $model->codon($codon)->getRow();
+            $protein .= $model->codon($codon)->fetch();
         }
 
         if(substr($protein, -1) == '*') {
