@@ -22,6 +22,28 @@ Run `composer install` to take care of downloading and installing the package.
 
 ## Examples
 
+### Gene entity
+
+Having your entities extend the `ComGenesModelEntityGene` class will automatically add support for translating the DNA sequence into a protein sequence. Or call it directly:
+
+```php
+$sequence = <<<EOL
+> A sequence
+ATGCAGACTGACGATTCTTGGAAACATAATGTGTCGTTTTATACA
+AATTTGGACTACACCGATAAGGATACCAAAATCAGTGCAGTTTAA
+EOL;
+
+$data = array(
+     'identifier' => 'C02H7.2',
+     'title'      => 'npr-19',
+     'sequence'   => $sequence
+);
+
+$entity = KOBjectManager::getInstance()->getObject('com://stevenrombauts/genes.model.entity.gene', array('data' => $data));
+
+echo $entity->protein;
+```
+
 ### Fasta filter
 
 You can use the [FASTA](https://en.wikipedia.org/wiki/FASTA_format) filter to validate and sanitize strings representings nucleotide sequences or peptide sequences. 
