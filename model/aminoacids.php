@@ -1,9 +1,14 @@
 <?php
-
-// @link http://en.wikipedia.org/wiki/Stop_codon
-// @link http://www.hgvs.org/mutnomen/codon.html
-// @link http://www.techcuriosity.com/resources/bioinformatics/dna2protein.php
-// @link http://www.bioon.com/book/biology/Beginning%20Perl%20for%20Bioinformatics/76.htm
+/**
+ * Amino acids model
+ *
+ * @link http://en.wikipedia.org/wiki/Stop_codon
+ * @link http://www.hgvs.org/mutnomen/codon.html
+ * @link http://www.techcuriosity.com/resources/bioinformatics/dna2protein.php
+ * @link http://www.bioon.com/book/biology/Beginning%20Perl%20for%20Bioinformatics/76.htm
+ *
+ * @author  Steven Rombauts <https://github.com/stevenrombauts>
+ */
 class ComGenesModelAminoAcids extends KModelAbstract
 {
     protected $_codons = array(
